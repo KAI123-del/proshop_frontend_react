@@ -1,0 +1,41 @@
+@import url("http://fonts.cdnfonts.com/css/gotham");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.disabled-link {
+  pointer-events: none;
+}
+
+.active-link {
+  pointer-events: auto;
+}
+
+@font-face {
+  font-family: "messapia";
+  src: local("messapia"),
+    url(../assets/Fonts/messapia/Messapia-Bold.woff) format("woff");
+}
+@font-face {
+  font-family: "nezto";
+  src: local("nezto"),
+    url(../assets/Fonts/Nezto/ZtNeztoDemoRegular-0WYEo.woff) format("woff");
+}
+@font-face {
+  font-family: "coconat";
+  src: local("coconat"),
+    url(../assets/Fonts/coconat/Coconat-BoldExt.woff) format("woff");
+}
+
+@font-face {
+  font-family: "biograph";
+  src: local("biograph"),
+    url(../assets/Fonts/biograph-signature-font/biograph/Biograph.woff)
+      format("woff");
+}
+
+@font-face {
+  font-family: "routerand";
+  src: local("routerand"),
+    url(../assets/Fonts/routerand-signature-font/Routerand.woff) format("woff");
+}
