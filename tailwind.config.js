@@ -20,7 +20,7 @@ module.exports = {
         slate: colors.slate,
       },
       fontFamily: {
-        'gotham': 'Gotham Ultra',
+        gotham: ['Gotham Ultra'],
         coconat: ["coconat", "sans-serif"],
         nezto: ["nezto", "sans-serif"],
         messapia: ["messapia", "sans-serif"],
@@ -28,7 +28,7 @@ module.exports = {
         biograph: ["biograph"]
       },
     },
-    
+
   },
 
   plugins: [],

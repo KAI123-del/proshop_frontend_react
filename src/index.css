@@ -1,4 +1,4 @@
-@import url("http://fonts.cdnfonts.com/css/gotham");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,6 +9,12 @@
 
 .active-link {
   pointer-events: auto;
+}
+
+@font-face {
+  font-family: "gotham";
+  src: local("gotham"),
+    url(../assets/Fonts/gotham/FontsFree-Net-Gotham-UltraItalic.woff) format("woff");
 }
 
 @font-face {
