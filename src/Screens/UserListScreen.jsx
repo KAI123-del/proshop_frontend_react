@@ -17,6 +17,7 @@ import {
   ADMIN_UPDATE_USER_RESET,
 } from "../constants/userConstants";
 import Paginate from "../components/Paginate";
+import Loader from "../components/Loader";
 
 const style = {
   position: "absolute",
@@ -74,6 +75,10 @@ function UserListScreen() {
     setUserId(user_id);
     setOpen(true);
   };
+
+  if(loading){
+    return <Loader/>
+  }
 
   return (
     <div style={{ height: "100%", minHeight: "100vh" }} className="relative">

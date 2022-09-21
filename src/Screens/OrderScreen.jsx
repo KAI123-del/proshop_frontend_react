@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { clsx } from "clsx";
 import { saveOrder } from "../actions/orderActions";
 import { useNavigate } from "react-router-dom";
+import Loader from "../components/Loader";
 
 function OrderScreen() {
   const dispatch = useDispatch();
@@ -62,6 +63,10 @@ function OrderScreen() {
       })
     );
   };
+
+  if(loading){
+    return <Loader/>
+  }
 
   return (
     <div

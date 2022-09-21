@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { listProducts, productDelete } from "../actions/ProductListActions";
 import { PRODUCT_CREATE_RESET } from "../constants/ProductConstants";
 import Paginate from "../components/Paginate";
+import Loader from "../components/Loader";
 
 const style = {
   position: "absolute",
@@ -79,6 +80,10 @@ function ProductListScreen() {
   const editProductHandler = (userId) => {
     navigate(`/editProduct/${userId}`);
   };
+
+  if(loading){
+    return <Loader/>
+  }
 
   return (
     <div style={{ height: "100%", minHeight: "100vh" }} className="relative">

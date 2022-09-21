@@ -17,17 +17,7 @@ function PaymentScreen() {
     step3Completed: false,
   });
 
-  // const elements=useElements();
-  // const stripe = useStripe();
 
-  // if (!stripe || !elements) {
-  //   return}
-
-  // const card = elements.getElement(CardElement)
-
-  // if(!card){
-  //   return
-  // }
 
   const paypalHandler = () => {
     dispatch(savePaymentMethod("paypal"));

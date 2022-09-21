@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { listProducts } from "../actions/ProductListActions";
 import Paginate from "../components/Paginate";
 import TopProductsCarousel from "../components/TopProductsCarousel";
+import Loader from "../components/Loader";
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -25,6 +26,10 @@ const Products = () => {
     navigate(`/products/${data._id}`);
   };
 
+  if(loading){
+    return <Loader/>
+  }
+
   return (
     <div style={{ minHeight: "100vh" }} className="px-20">
       {error ? (
@@ -43,9 +48,8 @@ const Products = () => {
             Latest Arrival's
           </div>
           <div className="grid grid-cols-12 mt-6   gap-x-4 gap-y-8 pb-12 ">
-            {loading ? (
-              <h2>...loading</h2>
-            ) : (
+           {
+             (
               !error &&
               productAvailable.map((item) => (
                 <div className="col-span-3  shadow-lg shadow-black hover:scale-105 transition duration-500   rounded-lg flex flex-col items-star ">
@@ -81,7 +85,8 @@ const Products = () => {
                   </div>
                 </div>
               ))
-            )}
+            )
+           }
           </div>
           <Paginate page={page} pages={pages} />
         </>

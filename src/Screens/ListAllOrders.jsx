@@ -7,6 +7,7 @@ import { getAllOrders } from "../actions/orderActions";
 import { ImCross } from "react-icons/im";
 import { MdOutlineDone } from "react-icons/md";
 import Paginate from "../components/Paginate";
+import Loader from "../components/Loader";
 
 function ListAllOrders() {
   let navigate = useNavigate();
@@ -25,6 +26,10 @@ function ListAllOrders() {
   const orderDetailPageHandler = (userId) => {
     navigate(`/orders/${userId}`);
   };
+
+  if(loading){
+    return <Loader/>
+  }
 
   return (
     <div style={{ height: "100%", minHeight: "100vh" }} className="relative">
@@ -83,28 +88,28 @@ function ListAllOrders() {
                           "  border-b": allOrders?.length - 1 !== index,
                           "bg-zinc-800": index % 2 === 0,
                         })}>
-                        {item._id}
+                        {item?._id}
                       </td>
                       <td
                         className={clsx("border-r border-zinc-600", {
                           "  border-b": allOrders?.length - 1 !== index,
                           "bg-zinc-800": index % 2 === 0,
                         })}>
-                        {item.user.name}
+                        {item?.user?.name}
                       </td>
                       <td
                         className={clsx("border-r border-zinc-600 ", {
                           "  border-b": allOrders?.length - 1 !== index,
                           "bg-zinc-800": index % 2 === 0,
                         })}>
-                        <p>{item.createdAt.substring(0, 10)}</p>
+                        <p>{item?.createdAt.substring(0, 10)}</p>
                       </td>
                       <td
                         className={clsx("border-r border-zinc-600", {
                           "  border-b ": allOrders?.length - 1 !== index,
                           "bg-zinc-800": index % 2 === 0,
                         })}>
-                        $ {item.totalPrice}
+                        $ {item?.totalPrice}
                       </td>
 
                       <td
@@ -113,7 +118,7 @@ function ListAllOrders() {
                           "bg-zinc-800": index % 2 === 0,
                         })}>
                         <p className="flex items-start justify-center">
-                          {item.isPaid ? (
+                          {item?.isPaid ? (
                             <p className="text-3xl text-green-600  ">
                               <MdOutlineDone />
                             </p>
@@ -131,7 +136,7 @@ function ListAllOrders() {
                           "bg-zinc-800": index % 2 === 0,
                         })}>
                         <p className="flex items-center justify-center">
-                          {item.isDelivered ? (
+                          {item?.isDelivered ? (
                             <p className="text-3xl text-green-600 flex  ">
                               <MdOutlineDone />
                             </p>
@@ -150,7 +155,7 @@ function ListAllOrders() {
                           "bg-zinc-800": index % 2 === 0,
                         })}>
                         <button
-                          onClick={() => orderDetailPageHandler(item._id)}
+                          onClick={() => orderDetailPageHandler(item?._id)}
                           className="px-2 rounded-lg border-pink-600 text-pink-600 hover:text-white hover:border-white transition duration-300 border">
                           Details
                         </button>

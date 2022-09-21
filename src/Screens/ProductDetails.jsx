@@ -6,6 +6,7 @@ import { addToCart } from "../actions/cartActions";
 import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer, Flip } from "react-toastify";
 import { Avatar } from "@mui/material";
+import Loader from "../components/Loader";
 
 function ProductDetails() {
   const { id } = useParams();
@@ -38,10 +39,10 @@ function ProductDetails() {
   const { loading, error, product } = productDetail;
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <Loader/>
   }
 
-  console.log("review", reviewMessage);
+
 
   if (reviewMessage) {
     toast.success(reviewMessage.message, {

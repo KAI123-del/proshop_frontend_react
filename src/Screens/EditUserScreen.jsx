@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { adminUserUpdate } from "../actions/userActions";
 import { animate, spring } from "motion";
 import { BsCheckCircleFill } from "react-icons/bs";
+import Loader from "../components/Loader";
 
 function EditUserScreen() {
   let navigate = useNavigate();
@@ -59,6 +60,10 @@ function EditUserScreen() {
       }, 1000);
     }
   }, [success]);
+
+  if(userLoading){
+    return <Loader/>
+  }
 
   return (
     <div style={{ height: "100%", minHeight: "100vh" }} className="px-32">

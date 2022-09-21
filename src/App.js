@@ -16,6 +16,7 @@ import ProductListScreen from "./Screens/ProductListScreen";
 import EditProductScreen from "./Screens/EditProductScreen";
 import ListAllOrders from "./Screens/ListAllOrders";
 import Footer from "./components/Footer";
+import Loader from "./components/Loader";
 
 
 
@@ -27,6 +28,7 @@ function App() {
         <Routes>
           <Route path={"/"} element={<Products />} />
           <Route path={"/search/:keyword"} element={<Products />} />
+          <Route path="/loader" element={<Loader/>}/>
           <Route path={"/login"} element={<Login />} />
           <Route path={"/register"} element={<Register />} />
           <Route path={"/listAllOrders"} element={<ListAllOrders />} />

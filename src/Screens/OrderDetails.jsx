@@ -9,6 +9,7 @@ import axios from "axios";
 import { BsCheckCircleFill } from "react-icons/bs";
 import { animate, spring } from "motion";
 import { cartItemReset } from "../actions/cartActions";
+import Loader from "../components/Loader";
 
 function OrderDetails() {
   const options = {
@@ -112,7 +113,7 @@ function OrderDetails() {
   }, [order, id]);
 
   return loading ? (
-    "...loading"
+    <Loader/>
   ) : (
     <div
       style={{ minHeight: "100vh" }}
@@ -153,7 +154,7 @@ function OrderDetails() {
                 <p
                   style={{ marginLeft: "68px" }}
                   className="font-nezto text-lg tracking-wider">
-                  {order.user.name}
+                  {order?.user?.name}
                 </p>
               </div>
               <div className="flex mt-2  items-center">
@@ -161,8 +162,8 @@ function OrderDetails() {
                 <a
                   style={{ marginLeft: "68px" }}
                   className="font-nezto text-lg tracking-wider"
-                  href={`mailto:${order.user.email}`}>
-                  {order.user.email}
+                  href={`mailto:${order?.user?.email}`}>
+                  {order?.user?.email}
                 </a>
               </div>
               {order.isDelivered ? (
@@ -180,9 +181,9 @@ function OrderDetails() {
           <div className=" mt-4  pb-6 border-b border-zinc-500 ">
             <p className="font-gotham text-2xl mt-2 ">Payment Mode</p>
             <p className="font-nezto mt-3 text-xl tracking-wider">
-              {order.paymentMethod}
+              {order?.paymentMethod}
             </p>
-            {order.isPaid ? (
+            {order?.isPaid ? (
               <p className="border-2 py-2 px-4 mt-4 text-lg font-nezto tracking-wide text-green-500 bg-green-200 border-green-600 rounded">
                 Paid
               </p>

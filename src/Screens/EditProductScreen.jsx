@@ -13,14 +13,12 @@ function EditProductScreen() {
   const navigate = useNavigate();
   const { id } = useParams();
 
-  // const createProduct = useSelector((state) => state.createProduct);
-  // const { createProductData, loading } = createProduct;
 
   const { product } = useSelector((state) => state.productDetail);
   const { updatedProduct, success } = useSelector(
     (state) => state.updateProduct
   );
-  console.log("updatedProduct", updatedProduct);
+
 
   const [name, setName] = useState();
   const [description, setDesc] = useState();
@@ -61,7 +59,7 @@ function EditProductScreen() {
         },
       };
       const { data } = await axios.post(
-        "http://localhost:5000/api/upload",
+        "https://jobless-nerd.onrender.com/api/upload",
         formdata,
         config
       );

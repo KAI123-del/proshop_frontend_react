@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { login } from "../actions/userActions";
 import { ToastContainer, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Loader from "../components/Loader";
 
 function Login() {
   const dispatch = useDispatch();
@@ -27,6 +28,10 @@ function Login() {
       navigate(redirect);
     }
   }, [userInfo]);
+
+  if(loading){
+    return <Loader/>
+  }
 
   return (
     <div

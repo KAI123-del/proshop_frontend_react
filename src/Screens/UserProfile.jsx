@@ -8,6 +8,7 @@ import { USER_PROFILE_RESET } from "../constants/userConstants";
 import { getMyOrders } from "../actions/orderActions";
 import { ImCross } from "react-icons/im";
 import { MdOutlineDone } from "react-icons/md";
+import Loader from "../components/Loader";
 
 const style = {
   position: "absolute",
@@ -34,7 +35,6 @@ function UserProfile() {
   const myOrders = useSelector((state) => state.myOrders.myOrders);
   const userProfileUpdate = useSelector((state) => state.userProfileUpdate);
   const shippingAddress = useSelector((state) => state.cart.shippingAddress);
-  console.log("shipping", shippingAddress);
   const { success } = userProfileUpdate;
 
   const { loading, error, user } = userDetail;
@@ -97,7 +97,7 @@ function UserProfile() {
   console.log("orders", myOrders);
 
   if (loading) {
-    return <p>...Loading</p>;
+    return <Loader/>
   }
 
   return (

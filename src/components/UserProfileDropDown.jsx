@@ -29,7 +29,7 @@ export default function UserProfileDropDown({ user }) {
     <Menu as="div" className="relative inline-block text-left z-10">
       <div className="group  w-44">
         <Menu.Button className="inline-flex justify-center  rounded-md  text-xl tracking-wider ml-1 font-gotham text-pink-600   group-hover:text-white transition duration-500 ">
-          {user}
+          {user.substring(0, 8)}...
           <p className="group-hover:text-pink-600 transition duration-500 text-gray-200">
             <RiArrowDropDownLine className="text-3xl   text-center" />
           </p>
