@@ -70,7 +70,9 @@ function ProductListScreen() {
     if (!productCreateError) {
       navigate(`/editProduct/${createProductData?._id}`);
     } else {
-      alert("product id exists !!! please delete sample product on the last page");
+      alert(
+        "product id exists !!! please delete sample product on the last page"
+      );
     }
   };
 
@@ -178,7 +180,7 @@ function ProductListScreen() {
             </table>
           </div>
           <div className="mt-8">
-          <Paginate page={page} pages={pages} />
+            <Paginate page={page} pages={pages} />
           </div>
         </div>
       ) : (
