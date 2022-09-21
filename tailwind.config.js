@@ -20,7 +20,7 @@ module.exports = {
         slate: colors.slate,
       },
       fontFamily: {
-        gotham: ['Gotham Ultra'],
+        gotham: ['gotham'],
         coconat: ["coconat", "sans-serif"],
         nezto: ["nezto", "sans-serif"],
         messapia: ["messapia", "sans-serif"],
