@@ -28,7 +28,7 @@ module.exports = {
         biograph: ["biograph"]
       },
     },
-    ...(process.env.NODE_ENV === 'production' ? { cssnano: {} } : {})
+    
   },
 
   plugins: [],
