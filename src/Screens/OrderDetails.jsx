@@ -56,7 +56,7 @@ function OrderDetails() {
 
       if (order) {
         const paymentIntent = await axios.post(
-          "http://localhost:5000/create-payment-intent",
+          "https://jobless-nerd.onrender.com/create-payment-intent",
           {
             ...order,
           }
@@ -87,7 +87,7 @@ function OrderDetails() {
           setPaymentSuccess(true);
 
           const { data } = await axios.put(
-            `http://localhost:5000/api/orders/${order._id}/orderPaid`,
+            `https://jobless-nerd.onrender.com/api/orders/${order._id}/orderPaid`,
             {},
             config
           );
@@ -264,32 +264,32 @@ function OrderDetails() {
               <p className="pl-12">$ {order.totalPrice}</p>
             </div>
           </div>
-          
+
           {/* ====================payment card================================ */}
-          {
-            !order.isPaid && (<div className="mt-16 px-3 pb-4 pt-3 shadow-xl shadow-black rounded-lg flex flex-col">
-            <p className="text-center  mb-3 text-lg font-nezto tracking-wider">
-              Complete your payment
-            </p>
-            <div className="bg-white rounded p-3">
-              <CardElement options={options} />
+          {!order.isPaid && (
+            <div className="mt-16 px-3 pb-4 pt-3 shadow-xl shadow-black rounded-lg flex flex-col">
+              <p className="text-center  mb-3 text-lg font-nezto tracking-wider">
+                Complete your payment
+              </p>
+              <div className="bg-white rounded p-3">
+                <CardElement options={options} />
+              </div>
+              <div>
+                <button
+                  onClick={submitHandler}
+                  className="w-full flex relative justify-center items-center  bg-green-500 font-nezto tracking-wider mt-4 rounded h-10">
+                  {paymentLoading ? (
+                    <>
+                      <p className="w-8 h-8  rounded-full border-2  border-green-300"></p>
+                      <p className="w-8 h-8 absolute top-1 animate-spin  rounded-full border-y-2 border-green-500"></p>{" "}
+                    </>
+                  ) : (
+                    <p>pay now</p>
+                  )}
+                </button>
+              </div>
             </div>
-            <div>
-              <button
-                onClick={submitHandler}
-                className="w-full flex relative justify-center items-center  bg-green-500 font-nezto tracking-wider mt-4 rounded h-10">
-                {paymentLoading ? (
-                  <>
-                    <p className="w-8 h-8  rounded-full border-2  border-green-300"></p>
-                    <p className="w-8 h-8 absolute top-1 animate-spin  rounded-full border-y-2 border-green-500"></p>{" "}
-                  </>
-                ) : (
-                  <p>pay now</p>
-                )}
-              </button>
-            </div>
-          </div>)
-          }
+          )}
         </div>
       </div>
     </div>
